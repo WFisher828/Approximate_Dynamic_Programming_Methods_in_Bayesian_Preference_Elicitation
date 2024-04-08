@@ -8,7 +8,7 @@ A collection of code for the experiment ran in "Approximate Dynamic Programming 
 <ins>helper_functions.py</ins>
 This is a Python file which contains functions that are used in the questionnaire simulation experiment of the paper "Approximate Dynamic Programming Methods in Bayesian Preference Elicitation". It contains the following functions:
 * z_expectation_variance: The function is used to calculate the expectation and variance of the random variable $Z(m,\sigma)$.
-* KMS_Matrix: This function is used to generate an nxn matrix $M(r)$ such that $M_{ij} = r^{|i-j|}$ for $0<r<1$. This matrix is called a Kac-Murdock-Szego matrix.
+* KMS_Matrix: This function is used to generate an nxn matrix $M(r)$ such that $M_{ij} = r^{|i-j|}$ for $0 < r < 1$. This matrix is called a Kac-Murdock-Szego matrix.
 * product_diff_list: This function constructs a set that has all the differences between binary products.
 * moment_matching_update: This function is used to perform the moment matching approximation discussed in Section 2 of the paper.
 * g_fun: This function is used to evaluate the factor by which a single query reduces D-error. This function is discussed in the section "One-Step Look-Ahead". 
