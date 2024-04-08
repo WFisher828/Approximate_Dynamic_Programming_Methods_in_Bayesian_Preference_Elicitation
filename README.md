@@ -26,3 +26,6 @@ This is a Python file which contains functions that are used in the questionnair
 * rollout_with_batch_design_acquisition: This function is used for constructing a batch design and performing rollout on this batch design, returning the question amongst the batch that results in the lowest average determinant value.
 
 
+<ins>Sequential_Experiment_ADP.ipynb</ins>
+This is a Jupyter Notebook file which contains code to perform the numerical experiment presented in "Approximate Dynamic Programming Methods in Bayesian Preference Elicitation". To run this file, we must have access to the file helper_functions.
+
