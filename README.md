@@ -29,3 +29,41 @@ This is a Python file which contains functions that are used in the questionnair
 <ins>Sequential_Experiment_ADP.ipynb</ins>
 This is a Jupyter Notebook file which contains code to perform the numerical experiment presented in "Approximate Dynamic Programming Methods in Bayesian Preference Elicitation". To run this file, we must have access to the file helper_functions.
 
+**Running the Experiment**: <br />
+------
+
+<ins>Required Software</ins>: In order to run the experiment one will need to have installed [Python](https://www.python.org/), [Jupyter Notebook](https://jupyter.org/), and [Gurobi](https://www.gurobi.com/) on their machine. 
+
+Next, the python file "helper_functions.py", which contains functions used in the experiment, must be downloaded as the Jupyter Notebook file makes calls to these functions.
+
+Now, we will give directions for running the experiment.
+
+This experiment has a factorial structure, having six experimental settings. See the paper for details of the settings. These settings are:
+* number of attributes (6 or 12)
+* prior expectation (homogeneous (all ones) or heterogeneous )
+* prior covariance (homogeneous diagonal (identity matrix), heterogeneous diagonal, or non-diagonal (the Kac-Murdock-Szego matrix)
+* signal-to-noise ratio (low = 0.25, normal = 1.0, high = 4.0)
+* Look-ahead Horizon (1/3 of the number of attributes, 2/3 the number of attributes, equal to the number of attributes)
+* Orthogonality penalization paramter (small (M = 0.01), large (M= 10.0))
+
+Cell 3 of the Jupyter Notebook "Sequential_Experiment_ADP.ipynb" defines a function which allows the user to pick a combination of settings they wish to investigate. For example, if one wanted to investigate the case number of attributes = 6, homogeneous prior expectation, homogeneous diagonal prior covariance, normal signal to noise ratio, look-ahead horizon equal to 2/3 the number of attributes, and orthogonality penalization parameter equal to 10, the would run experiment_settings(1,1,1,2,2,2). See the options available in Cell 3 for other specifications. 
+
+In Cell 4 of the Jupyter Notebook "Sequential_Experiment_ADP.ipynb", one will see the following 
+
+```python
+#EXPERIMENT SETTING ARGUMENTS
+attr_exp = int(sys.argv[1])
+bp_expect_exp = int(sys.argv[2])
+bp_cov_exp = int(sys.argv[3])
+signal_noise_exp = int(sys.argv[4])
+look_ahead_exp = int(sys.argv[5])
+ortho_pen_exp = int(sys.argv[6])
+```
+
+Now, to run a particular experiment setting in Jupyter Notebook one will comment out each of the arguments int(sys.argv[-]) and select their preferred settings by choosing a number, using the encoding of options of different settings given in Cell 3.
+
+Alternatively, If one has access to a computing cluster, they may download the notebook as a python file and write a Bash script to run multiple experiment settings at a time using a batch job array. A text file will need
+to be defined with each row corresponding to a experiment setting and each column corresponding to number of attributes, prior expectation, prior covariance, signal-to-noise ratio, look-ahead horizon, and orthogonality penalization parameter (these are what the int(sys.argv[-]) are for).
+
+
+
