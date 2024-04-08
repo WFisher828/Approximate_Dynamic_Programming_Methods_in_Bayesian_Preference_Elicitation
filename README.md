@@ -2,8 +2,11 @@
  
 A collection of code for the experiment ran in "Approximate Dynamic Programming Methods in Bayesian Preference Elicitation".
 
-** Description of Files. ** <br />
+**Description of Files.** <br />
 ------
 
 <ins>helper_functions.py<ins>
-This is a Python file which contains functions that are used in the questionnaire simulation experiment of the paper "Approximate Dynamic Programming Methods in Bayesian Preference Elicitation"
+This is a Python file which contains functions that are used in the questionnaire simulation experiment of the paper "Approximate Dynamic Programming Methods in Bayesian Preference Elicitation". It contains the following functions:
+
+
+
