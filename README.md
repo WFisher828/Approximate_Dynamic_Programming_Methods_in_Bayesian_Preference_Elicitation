@@ -66,4 +66,5 @@ Alternatively, If one has access to a computing cluster, they may download the n
 to be defined with each row corresponding to a experiment setting and each column corresponding to number of attributes, prior expectation, prior covariance, signal-to-noise ratio, look-ahead horizon, and orthogonality penalization parameter (these are what the int(sys.argv[-]) are for).
 
 
-
+**TO DO**
+Need to add in code to take a data file from an experiment setting and create images!
