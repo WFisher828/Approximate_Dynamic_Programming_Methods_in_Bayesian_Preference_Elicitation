@@ -35,6 +35,20 @@ This is a Jupyter Notebook file which contains code to plot images once an exper
 <ins>parameter_file.txt</ins>
 This is a txt file which contains all of the possible experiment settings, each row corresponds to a particular combination of settings. Column 1 corresponds to number of attributes. Column 2 corresponds to prior expectation. Column 3 corresponds to prior covariance. Column 4 corresponds to signal-to-noise ratio. Column 5 corresponds to look-ahead horizon. Lastly, column 6 corresponds to orthogonality penalty parameter. See "Running the Experiment" below for levels of each factor (also described in the paper). One may make a file similar to this if they wish to write a batch script to run a subset of multiple experiments in parallel if they have access to a computing cluster.
 
+<ins>Supplementary_Datasets</ins>
+This folder contains datasets from experiments similar to the one case presented in the Simulation Study section of our paper. These experiments were ran on Clemson University's Palmetto supercomputing cluster. Each file in this folder corresponds to a combination of experiment settings discussed in the Experiment Setup section of our paper. These files contain the following columns:
+* Method: 0 - One-step look-ahead; 1 - Rollout over batch design; 2 - Two-step look-ahead; 3 - Rollout via coordinate exchange
+* Min/Max: 0 - Min mse case, 1 - Max mse case.
+* Rep: Within each experiment we replicated the questionnaire 50 times for both the min case and the max case. (Range from 1 to 50)
+* Question: Within a replication of a questionnaire, we had 16 questions. (Range from 1 to 16)
+* Norm_MSE: The normalized MSE value (see Experiment Setup section) at question k under a particular method, Min/Max case, and replication.
+* Det: Determinant of the posterior covariance matrix at question k under a particular method, Min/Max case, and replication.
+* Hitrate: We did not discuss this metric in the paper due to it giving similar information as Norm_MSE. This metric is reported after each replication of a questionnaire. To calculate the hitrate, we use the final posterior expectation as the estimates of the utility model and check whether the estimated utility model is able to select the same alternative as the true utility model for every question pair. The hitrate is then the proportion of question pairs where the estimated utility model and the true utility model (both without Gumbel error) select the same alternative.
+* Prob. Sel: Probability of correct selection. We did not discuss this metric in the paper. This metric is reported once for each method. After a questionnaire replication is complete, we see whether the estimated utility model has the same maximizer as the true utility model. The probability of correct selection is then the proportion of replications where the true utility model and estimated utility model have the same maximizer.
+* Mu_i : This is the i-th component of the posterior expectation at question k.
+* True_i: This is the i-th component of the true partworth vector (will differ depending on the Min/Max case).
+To plot the results of a specific experiment file, one will need to download the experiment file and then use the file Plotting.ipynb (these two files should be in the same folder). Plotting.ipynb directly calls the experiment file by the user specifying the experiment conditions in cell 2 of Plotting.ipynb. 
+
 **Running the Experiment**: <br />
 ------
 
@@ -70,6 +84,10 @@ Now, to run a particular experiment setting in Jupyter Notebook one will comment
 
 Alternatively, If one has access to a computing cluster, they may download the notebook as a python file and write a Bash script to run multiple experiment settings at a time using a batch job array. A text file will need
 to be defined with each row corresponding to a experiment setting and each column corresponding to number of attributes, prior expectation, prior covariance, signal-to-noise ratio, look-ahead horizon, and orthogonality penalization parameter (these are what the int(sys.argv[-]) are for).
+
+After an experiment is run, a csv file will be returned (see Supplementary_Datasets for examples).
+
+To plot the experiment results, one will use Plotting.ipynb. Make sure the experiment file you are interested in is in the same location as Plotting.ipynb. In Plotting.ipynb, one will specify the corresponding experiment setting in Cell 2, and then run the remaining cells to produce Figures. 
 
 
 
