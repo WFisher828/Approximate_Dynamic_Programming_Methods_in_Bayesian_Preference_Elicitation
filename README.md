@@ -29,6 +29,12 @@ This is a Python file which contains functions that are used in the questionnair
 <ins>Sequential_Experiment_ADP.ipynb</ins>
 This is a Jupyter Notebook file which contains code to perform the numerical experiment presented in "Approximate Dynamic Programming Methods in Bayesian Preference Elicitation". To run this file, we must have access to the file helper_functions.
 
+<ins>Plotting.ipynb</ins>
+This is a Jupyter Notebook file which contains code to plot images once an experiment is ran using Sequential_Experiment_ADP.ipynb. This file will plot 6 graphs, with four related to D-error reduction and two related to reduction in normalized MSE. The four related to D-error are split upon two factors, those being the "min" vs. "max" cases described in the paper and the "full questionnaire" vs. "last four queries". The two figures related to normalized MSE are split upon the "min" and "max" cases. 
+
+<ins>parameter_file.txt</ins>
+This is a txt file which contains all of the possible experiment settings, each row corresponds to a particular combination of settings. Column 1 corresponds to number of attributes. Column 2 corresponds to prior expectation. Column 3 corresponds to prior covariance. Column 4 corresponds to signal-to-noise ratio. Column 5 corresponds to look-ahead horizon. Lastly, column 6 corresponds to orthogonality penalty parameter. See "Running the Experiment" below for levels of each factor (also described in the paper). One may make a file similar to this if they wish to write a batch script to run a subset of multiple experiments in parallel if they have access to a computing cluster.
+
 **Running the Experiment**: <br />
 ------
 
@@ -66,5 +72,4 @@ Alternatively, If one has access to a computing cluster, they may download the n
 to be defined with each row corresponding to a experiment setting and each column corresponding to number of attributes, prior expectation, prior covariance, signal-to-noise ratio, look-ahead horizon, and orthogonality penalization parameter (these are what the int(sys.argv[-]) are for).
 
 
-**TO DO**
-Need to add in code to take a data file from an experiment setting and create images!
+
